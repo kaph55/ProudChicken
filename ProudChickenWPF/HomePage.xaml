@@ -1,0 +1,124 @@
+﻿<Window x:Class="ProudChickenWPF.HomePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProudChickenWPF"
+        mc:Ignorable="d"
+        Title="ProudChicken::Home" Height="600" Width="850">
+    <Grid>
+        <Border>
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="Beige" Offset="0.3"/>
+                    <GradientStop Color="PaleTurquoise" Offset="0.8"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+
+        <StackPanel HorizontalAlignment="Center" Margin="10">
+            <Image Source="Images/proudchicken.png" Height="250"/>
+
+            <TextBlock Text = "Velkommen til Proud Chicken! Vi bringer lækre kyllingeretter direkte til din by." 
+                FontWeight="Bold" Margin="0,10,0,0" FontSize="15"  FontFamily="Comic sans ms" TextWrapping="Wrap" TextAlignment="Center"/>
+              <StackPanel >
+                <TextBlock Text="🔥 Tilmeld dig og få besked om:"  FontWeight="Bold" FontSize="20" Margin="0,20,0,0" FontFamily="Comic Sans MS" />
+                <TextBlock Text="✓ Hvor vi holder"  FontSize="14" FontFamily="Comic Sans MS" Margin="30,10,0,0" />
+                <TextBlock Text="✓ Dagens ret"  FontSize="14"  FontFamily="Comic Sans MS" Margin="30,10,0,0" />
+                    
+
+                <TextBlock Text="✓ Eksklusive tilbud" FontSize="14" FontFamily="Comic Sans MS" Margin="30,10,0,0" />
+                
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal"
+                 Margin="30,0,30,0" 
+                 Grid.Row="3">
+                <Button x:Name="BrugerButton" Content="Admin Log ind" 
+                 Width="200" 
+                 Margin="30"
+                 Height="40"
+                 Click="BrugerButton_Click"
+                 Background="Beige"
+                 />
+                <Button x:Name="SignUpButton" Content="Tilmeld som kunder" 
+                 Width="200" 
+                 Margin="30"
+                 Height="40"
+                 Click="SignUpButton_Click"
+                 Background="Beige"/>
+
+            </StackPanel>
+        </StackPanel>
+        <Popup x:Name="PopupLogin" IsOpen="False" StaysOpen="false" Placement="Right" PopupAnimation="Slide" PlacementTarget="{Binding ElementName=BrugerButton}" Width="350"  AllowsTransparency="True">
+            <StackPanel Background="GhostWhite">
+                <TextBlock Text="Login" Background="AliceBlue" FontWeight="Bold" HorizontalAlignment="Center" FontSize="25" />
+                <TextBlock x:Name="TextBlockErrorMessageLogin" Foreground="Red" FontWeight="Bold" Visibility="Collapsed" Margin="10,5,10,0"/>
+                <DockPanel HorizontalAlignment="Left" Margin="10,0,0,0">
+                    <TextBlock Text="*" VerticalAlignment="Top" Foreground="Red" />
+                    <TextBlock Text="BrugerNavn" Width="100" Height="30" VerticalAlignment="Center"/>
+                    <TextBox x:Name="TextBrugerNavn" Width="150" Height="30" Margin="10,20,10,0" VerticalContentAlignment="Center"/>
+                </DockPanel>
+                <DockPanel HorizontalAlignment="Left" Margin="10,0,0,0">
+                    <TextBlock Text="*" VerticalAlignment="Top" Foreground="Red" />
+                    <TextBlock Text="AdgangsKode" Width="100" Height="30" VerticalAlignment="Center"/>
+                    <PasswordBox  x:Name="TxtAdgangsKode"  Width="150" VerticalContentAlignment="Center"  Margin="10,20,10,0"/>
+
+                </DockPanel>
+                <Button x:Name="LoginButton" Content="Login" Background="White" IsDefault="True" Width="150" Height="30" Margin="20" Click="LoginButton_Click"/>
+
+            </StackPanel>
+        </Popup>
+        <Popup x:Name="PopupSignup" IsOpen="False" StaysOpen="false" Placement="Right" PopupAnimation="Slide" PlacementTarget="{Binding ElementName=SignUpButton}" Width="350"  AllowsTransparency="True">
+            <StackPanel Background="GhostWhite">
+                <TextBlock Text="Sign Up" Margin="20"  HorizontalAlignment="Center" FontSize="16" FontWeight="Bold"/>
+                <TextBlock x:Name="TextBlockErrorMessageSignUp" Foreground="Red" FontWeight="Bold" Visibility="Collapsed" Margin="10,5,10,0"/>
+                <DockPanel  HorizontalAlignment="Left" Margin="10,0,0,0">
+                    <TextBlock Text="*" VerticalAlignment="Center" Foreground="Red" />
+                    <TextBlock Text="KundeNavn" Width="100" VerticalAlignment="Center" />
+                    <TextBox x:Name="TextBoxKundeNavn" Width="100" Height="30" Margin="10,0,10,0"  VerticalContentAlignment="Center"/>
+                </DockPanel>
+                <DockPanel  HorizontalAlignment="Left" Margin="10,10,0,0">
+                    <TextBlock Text="*" VerticalAlignment="Center" Foreground="Red" />
+                    <TextBlock Text="VejNavn"  Width="100" VerticalAlignment="Center" />
+                    <TextBox x:Name="TextBoxVejNavn" Width="100" Height="30" Margin="10,0,10,0"  VerticalContentAlignment="Center"/>
+                </DockPanel>
+                <DockPanel  HorizontalAlignment="Left" Margin="10,10,0,0">
+                    <TextBlock Text="*" VerticalAlignment="Center" Foreground="Red" />
+                    <TextBlock Text="ByNavn"  Width="100" VerticalAlignment="Center" />
+                    <TextBox x:Name="TextBoxByNavn" Width="100" Height="30" Margin="10,0,10,0"  VerticalContentAlignment="Center"/>
+                </DockPanel>
+                <DockPanel  HorizontalAlignment="Left" Margin="10,10,0,0">
+                    <TextBlock Text="*" VerticalAlignment="Center" Foreground="Red" />
+                    <TextBlock Text="PostNummer"  Width="100" VerticalAlignment="Center" />
+                    <TextBox x:Name="TextBoxPostNummer" Width="100" Height="30" Margin="10,0,10,0"  VerticalContentAlignment="Center"/>
+                </DockPanel>                 
+                <DockPanel  HorizontalAlignment="Left" Margin="10,10,0,0">
+                    <TextBlock Text="*" VerticalAlignment="Center" Foreground="Red" />
+                    <TextBlock Text="Email"  Width="100" VerticalAlignment="Center" />
+                    <TextBox x:Name="TextBoxEmail" Width="100" Height="30" Margin="10,0,10,0"  VerticalContentAlignment="Center"/>
+                </DockPanel>
+                <DockPanel  HorizontalAlignment="Left" Margin="10,10,0,0">
+                    <TextBlock Text="*" VerticalAlignment="Center" Foreground="Red" />
+                    <TextBlock Text="TelefonNummer"  Width="100" VerticalAlignment="Center" />
+                    <TextBox x:Name="TextBoxTelefonNummer" Width="150" Height="30" Margin="10,0,10,0"  VerticalContentAlignment="Center"/>
+                </DockPanel>
+                <DockPanel  HorizontalAlignment="Left" Margin="10,10,0,0">
+                    <TextBlock Text="*" VerticalAlignment="Center" Foreground="Red" />
+                    <TextBlock Text="Vælg tilmeldingsmetode:" Width="150" Margin="0,10,0,5" />
+                    <CheckBox x:Name="CheckBoxPreferEmail" IsChecked="True" Margin="10,0,0,0">Email</CheckBox>
+                    <CheckBox x:Name="CheckBoxPreferSms" IsChecked="True" Margin="10,0,0,0">Sms</CheckBox>
+                </DockPanel>
+                <DockPanel  HorizontalAlignment="Left" Margin="10,10,0,0">
+                    <TextBlock Text="Præferencer"  Width="100" VerticalAlignment="Center" />
+                    <CheckBox x:Name="CheckBoxFrozen" IsChecked="True" Margin="10,0,0,0">Frozen</CheckBox>
+                    <CheckBox x:Name="CheckBoxKold" IsChecked="True" Margin="10,0,0,0">Kold</CheckBox>
+                    <CheckBox x:Name="CheckBoxVarm" IsChecked="True" Margin="10,0,0,0">Varm</CheckBox>
+                </DockPanel>
+
+                <Button x:Name="signUpBtn" Content="Sign up" Background="White" IsDefault="True" Height="30" Margin="20" Width="120" Click="GemKunde_Click"/>
+            </StackPanel>
+        </Popup>
+    </Grid>
+</Window>
